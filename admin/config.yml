@@ -1,0 +1,73 @@
+backend:
+  name: github
+  repo: aryawin/congenial-octo-waffle # IMPORTANT: Replace with your repo path
+  branch: main
+  # client_id: YOUR_GITHUB_OAUTH_CLIENT_ID 
+
+media_folder: "public/assets"
+public_folder: "/assets"
+
+collections:
+  - name: "projects"
+    label: "Projects & Deployments"
+    folder: "src/data/projects"
+    create: true
+    slug: "{{slug}}"
+    extension: "json"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Tags", name: "tags", widget: "list", hint: "e.g., AWS, Terraform, BGP" }
+      - { label: "Status", name: "status", widget: "select", options: ["Completed", "Ongoing", "Archived"] }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Metric Summary", name: "metric_summary", widget: "string", hint: "e.g., 99.99% Uptime, 15ms avg latency" }
+
+  - name: "page_content"
+    label: "Page Content"
+    files:
+      - label: "Site Settings & SEO"
+        name: "settings"
+        file: "src/data/settings.json"
+        fields:
+          - { label: "Your Name", name: "name", widget: "string" }
+          - { label: "Hero Tagline", name: "tagline", widget: "string", hint: "List certifications, roles, etc." }
+          - { label: "Meta Description", name: "meta_description", widget: "text", hint: "A brief summary for search engines." }
+          - label: "JSON-LD Schema"
+            name: "json_ld"
+            widget: "object"
+            hint: "Structured data for Google's Knowledge Graph."
+            fields:
+              - { label: "Website URL", name: "url", widget: "string" }
+              - label: "Social Profile URLs", name: "sameAs", widget: "list", field: { label: "Profile URL", name: "url", widget: "string" }
+      
+      - label: "Certifications"
+        name: "certifications"
+        file: "src/data/certifications.json"
+        fields:
+          - label: "Certification Items"
+            name: "certs"
+            widget: "list"
+            fields:
+              - { label: "Logo", name: "logo", widget: "image" }
+              - { label: "Alt Text", name: "alt", widget: "string", hint: "Important for accessibility." }
+              - { label: "Link URL", name: "url", widget: "string" }
+
+      - label: "Tools & Tech Stack"
+        name: "tools"
+        file: "src/data/tools.json"
+        fields:
+          - label: "Tool List"
+            name: "tools"
+            widget: "list"
+            field: { label: "Tool Name", name: "name", widget: "string" }
+
+      - label: "Contact & Availability"
+        name: "contact"
+        file: "src/data/contact.json"
+        fields:
+          - { label: "Primary CTA URL (Book a Call)", name: "primary_cta_url", widget: "string", hint: "e.g., your Calendly link" }
+          - label: "Other Links"
+            name: "links"
+            widget: "list"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "URL", name: "url", widget: "string" }
