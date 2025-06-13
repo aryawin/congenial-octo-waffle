@@ -41,33 +41,22 @@
     </main>
 
     <script>
-        async function loadCmsData() {
-            try {
-                const dataSources = {
-                    settings: './src/data/settings.json',
-                    projects: './src/data/projects.json',
-                    certifications: './src/data/certifications.json',
-                    tools: './src/data/tools.json',
-                    contact: './src/data/contact.json'
-                };
-                const responses = await Promise.all(Object.values(dataSources).map(url => fetch(url)));
-                for (const res of responses) {
-                    if (!res.ok) throw new Error(`Failed to fetch: ${res.statusText} from ${res.url}`);
-                }
-                const dataEntries = await Promise.all(responses.map(res => res.json()));
-                return {
-                    settings: dataEntries[0],
-                    projects: dataEntries[1],
-                    certifications: dataEntries[2].certs,
-                    tools: dataEntries[3].tools,
-                    contact: dataEntries[4]
-                };
-            } catch (error) {
-                console.error("Could not load content from data files:", error);
-                document.body.innerHTML = `<div class="text-white text-center p-8">Error loading page content. Please check the console for details.</div>`;
-                return null;
-            }
+async function loadCmsData() {
+    const API_URL = 'http://YOUR_PUBLIC_IP_ADDRESS/api/data'; // <-- IMPORTANT: Use your ECS IP
+    try {
+        const response = await fetch(API_URL);
+        if (!response.ok) {
+            throw new Error('Failed to fetch portfolio data');
         }
+        // The structure from the API should match what the renderPage function expects
+        const data = await response.json();
+        return data;
+    } catch (error) {
+        console.error("Could not load content from API:", error);
+        document.body.innerHTML = `<div class="text-white text-center p-8">Error loading page content.</div>`;
+        return null;
+    }
+}
 
         document.addEventListener('DOMContentLoaded', async () => {
             if ('serviceWorker' in navigator) {
