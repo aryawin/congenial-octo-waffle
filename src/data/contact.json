@@ -1,0 +1,17 @@
+{
+  "primary_cta_url": "https://calendly.com/your-link",
+  "links": [
+    {
+      "label": "LinkedIn",
+      "url": "https://linkedin.com/in/your-linkedin"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com/your-github"
+    },
+    {
+      "label": "Email",
+      "url": "mailto:you@example.com"
+    }
+  ]
+}
