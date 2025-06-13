@@ -1,0 +1,16 @@
+{
+  "name": "Arya Wahyu Mahardika",
+  "tagline": "Politeknik Negeri Jakarta",
+  "meta_description": "Arya's projects website",
+  "json_ld": {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Arya Wahyu Mahardika",
+    "url": "https://your-domain.com",
+    "jobTitle": "Student",
+    "sameAs": [
+      "https://github.com/aryawin",
+      "https://linkedin.com/in/arya-wahyu-mahardika"
+    ]
+  }
+}
