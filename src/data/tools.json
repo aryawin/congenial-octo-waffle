@@ -1,0 +1,12 @@
+{
+  "tools": [
+    { "name": "Terraform" },
+    { "name": "Ansible" },
+    { "name": "Kubernetes" },
+    { "name": "Docker" },
+    { "name": "AWS" },
+    { "name": "Azure" },
+    { "name": "GCP" },
+    { "name": "CI/CD" }
+  ]
+}
