@@ -44,7 +44,7 @@
 async function loadCmsData() {
     const API_URL = 'http://YOUR_PUBLIC_IP_ADDRESS/api/data'; // <-- IMPORTANT: Use your ECS IP
     try {
-        const response = await fetch(API_URL);
+        const response = await fetch(API_URL + '?t=' + new Date().getTime());
         if (!response.ok) {
             throw new Error('Failed to fetch portfolio data');
         }
