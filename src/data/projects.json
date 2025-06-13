@@ -1,1 +1,17 @@
 
+[
+  {
+    "title": "Multi-Region AWS EKS Cluster with Terraform",
+    "tags": ["AWS", "Kubernetes", "Terraform", "CI/CD"],
+    "status": "Completed",
+    "date": "2024-05-15T00:00:00.000Z",
+    "metric_summary": "99.99% Uptime"
+  },
+  {
+    "title": "Global BGP Anycast Network for DNS",
+    "tags": ["BGP", "Anycast", "DNS", "Bird"],
+    "status": "Ongoing",
+    "date": "2023-11-15T00:00:00.000Z",
+    "metric_summary": "15ms avg latency"
+  }
+]
